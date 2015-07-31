@@ -1,2 +1,2 @@
 # pysph_docker
-the Dockerfile for PySPH
+The Dockerfile for PySPH
