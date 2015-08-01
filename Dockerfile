@@ -4,6 +4,8 @@ LABEL version = '0.0.1-beta'
 
 RUN apt-get update && DEBIAN_FRONTED=noninteractive apt-get install -yq apt-utils
 
+RUN apt-get install -y python python-dev python-distribute python-pip
+
 RUN DEBIAN_FRONTED=noninteractive apt-get install -yq python build-essential \
 python-dev python-dev python-numpy python-mako cython python-nose \
 mayavi2 python-qt4 git python-setuptools
