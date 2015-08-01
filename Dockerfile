@@ -17,12 +17,12 @@ RUN DEBIAN_FRONTED=noninteractive apt-get install -yq libopenmpi-dev python-mpi4
 # Installing locate
 #RUN sudo apt-get install -yq locate
 
-CMD ["./build_zoltan.sh", "~/zoltan"]
-CMD ["export", "ZOLTAN=~/zoltan"]
+RUN ["./build_zoltan.sh", "~/zoltan"]
+RUN ["export", "ZOLTAN=~/zoltan"]
 
 # For downloading the PySPH and setiing up setup
 RUN git clone https://bitbucket.org/pysph/pysph.git
-CMD ["python", "/pysph/setup.py", "develop"]
+RUN ["python", "/pysph/setup.py", "develop"]
 
 # For update of PySPH
 # CMD ["git", "pull"]
