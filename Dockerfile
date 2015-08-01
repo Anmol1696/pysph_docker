@@ -14,15 +14,18 @@ RUN DEBIAN_FRONTED=noninteractive apt-get install -yq libgomp1
 # For parallel support
 RUN DEBIAN_FRONTED=noninteractive apt-get install -yq libopenmpi-dev python-mpi4py
 
+# Some additional packages
+RUN DEBIAN_FRONteD=noninteractive apt-get install -yq wget curl tar
+
 # Installing locate
 #RUN sudo apt-get install -yq locate
-
-CMD ["./build_zoltan.sh", "~/zoltan"]
-CMD ["export", "ZOLTAN=~/zoltan"]
 
 # For downloading the PySPH and setiing up setup
 RUN git clone https://bitbucket.org/pysph/pysph.git
 CMD ["python", "/pysph/setup.py", "develop"]
+
+RUN ./pysph/build_zoltan.sh ~/zoltan
+RUN export ZOLTAN=~/zoltan
 
 # For update of PySPH
 # CMD ["git", "pull"]
