@@ -17,6 +17,10 @@ RUN DEBIAN_FRONTED=noninteractive apt-get install -yq libopenmpi-dev python-mpi4
 # Installing locate
 #RUN sudo apt-get install -yq locate
 
+ADD build_zoltan.sh /
+
+WORKDIR /
+
 RUN ["./build_zoltan.sh", "~/zoltan"]
 RUN ["export", "ZOLTAN=~/zoltan"]
 
