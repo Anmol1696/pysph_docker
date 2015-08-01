@@ -1,6 +1,7 @@
 FROM ubuntu:14.04
 MAINTAINER user@gmail.com
-LABEL version = '0.1.1-beta' #Use pip for installing stable version
+LABEL version = '0.1.1-beta'
+#Use pip for installing stable version
 
 RUN apt-get update && DEBIAN_FRONTED=noninteractive apt-get install -yq apt-utils
 
