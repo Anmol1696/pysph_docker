@@ -1,11 +1,13 @@
 FROM ubuntu:14.04
 MAINTAINER user@gmail.com
-LABEL version = '0.0.1-beta'
+LABEL version = '0.1.1-beta' #Use pip for installing stable version
 
 RUN apt-get update && DEBIAN_FRONTED=noninteractive apt-get install -yq apt-utils
 
+RUN apt-get install -y python python-dev python-distribute python-pip
+
 RUN DEBIAN_FRONTED=noninteractive apt-get install -yq python build-essential \
-python-dev python-dev python-numpy python-mako cython python-nose \
+python-numpy python-mako cython python-nose \
 mayavi2 python-qt4 git python-setuptools
 
 # OpenMP
@@ -17,13 +19,7 @@ RUN DEBIAN_FRONTED=noninteractive apt-get install -yq libopenmpi-dev python-mpi4
 # Installing locate
 #RUN sudo apt-get install -yq locate
 
-CMD ["./build_zoltan.sh", "~/zoltan"]
-CMD ["export", "ZOLTAN=~/zoltan"]
+RUN ["./build_zoltan.sh", "~/zoltan"]
+RUN ["export", "ZOLTAN=~/zoltan"]
 
-# For downloading the PySPH and setiing up setup
-RUN git clone https://bitbucket.org/pysph/pysph.git
-CMD ["python", "/pysph/setup.py", "develop"]
-
-# For update of PySPH
-# CMD ["git", "pull"]
-# CMD ["python", "setup.py", "develop"]
+RUN pip install PySPH
