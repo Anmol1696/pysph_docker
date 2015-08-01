@@ -21,8 +21,10 @@ ADD build_zoltan.sh /
 
 WORKDIR /
 
-RUN ["./build_zoltan.sh", "~/zoltan"]
-RUN ["export", "ZOLTAN=~/zoltan"]
+RUN mkdir -p ~/zoltan
+
+RUN chmod +x /build_zoltan.sh ~/zoltan
+RUN export ZOLTAN=~/zoltan
 
 # For downloading the PySPH and setiing up setup
 RUN git clone https://bitbucket.org/pysph/pysph.git
