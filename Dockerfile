@@ -41,7 +41,7 @@ RUN git clone https://bitbucket.org/pysph/pysph.git
 RUN chmod +x /pysph/build_zoltan.sh /pyzoltan
 RUN export ZOLTAN=~/pyzoltan
 
-RUN ["python", "/pysph/setup.py", "develop"] # this is the problem
+RUN ["python", "/pysph/setup.py", "develop"]
 
 # For update of PySPH
 # CMD ["git", "pull"]
