@@ -15,7 +15,7 @@ RUN DEBIAN_FRONTED=noninteractive apt-get install -yq libgomp1
 RUN DEBIAN_FRONTED=noninteractive apt-get install -yq libopenmpi-dev python-mpi4py python-importlib python-unittest2
 
 # Some additional packages
-RUN DEBIAN_FRONteD=noninteractive apt-get install -yq wget curl tar gcc g++
+RUN DEBIAN_FRONteD=noninteractive apt-get install -yq wget curl tar gcc g++ pip
 
 RUN export CC=gcc-4.8.4
 
