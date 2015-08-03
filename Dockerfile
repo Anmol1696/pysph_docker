@@ -12,21 +12,25 @@ mayavi2 python-qt4 git python-setuptools
 RUN DEBIAN_FRONTED=noninteractive apt-get install -yq libgomp1
 
 # For parallel support
-RUN DEBIAN_FRONTED=noninteractive apt-get install -yq libopenmpi-dev python-mpi4py
+RUN DEBIAN_FRONTED=noninteractive apt-get install -yq libopenmpi-dev python-mpi4py python-importlib python-unittest2
 
 # Some additional packages
 RUN DEBIAN_FRONteD=noninteractive apt-get install -yq wget curl tar gcc g++
 
+RUN export CC=gcc-4.8.4
+
 # Installing locate
-#RUN sudo apt-get install -yq locate
+#RUN apt-get install -yq locate pip
+#RUN pip install numpy
 
 # For downloading the PySPH and setiing up setup
-RUN git clone https://bitbucket.org/pysph/pysph.git
+ADD pysph /
+ADD build_zoltan.sh /
 
-RUN ./pysph/build_zoltan.sh /pyzoltan
-RUN export ZOLTAN=~/pyzoltan
+RUN ./build_zoltan.sh /pyzoltan
+RUN export ZOLTAN=/pyzoltan
 
-RUN ["python", "/pysph/setup.py", "develop"] # this is the problem
+RUN python  setup.py install
 
 # For update of PySPH
 # CMD ["git", "pull"]
