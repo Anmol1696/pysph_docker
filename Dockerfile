@@ -18,7 +18,7 @@ RUN export CC=gcc-4.8.4
 
 RUN DEBIAN_FRONTED=noninteractive apt-get install python-mock
 
-# For downloading the PySPH and setiing up setup
-RUN git clone https://bitbucket.org/pysph/pysph.git 
+# For downloading the PySPH and setting up setup
+RUN git clone https://bitbucket.org/pysph/pysph.git
 
-RUN cd pysph && ./build_zoltan.sh /zoltan && export ZOLTAN=/zoltan && python setup.py develop && pysph test -v
+RUN cd pysph && ./build_zoltan.sh /zoltan && export ZOLTAN=/zoltan && python setup.py develop
