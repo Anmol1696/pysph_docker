@@ -10,7 +10,7 @@ RUN apt-get install -yq python build-essential python-dev python-numpy python-ma
 
 RUN apt-get install -yq libopenmpi-dev python-mpi4py libgomp1 cython mayavi2 git wget curl tar gcc g++
 
-# For downloading the PySPH and setiing up setup
+# For downloading the PySPH and setting up setup
 RUN git clone https://bitbucket.org/pysph/pysph.git
 
 RUN cd pysph && ./build_zoltan.sh /zoltan && export ZOLTAN=/zoltan && python setup.py develop && python update.py set
