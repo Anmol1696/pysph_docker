@@ -1,24 +1,14 @@
 FROM ubuntu:14.04
-MAINTAINER user@gmail.com
+MAINTAINER user@example.com
 LABEL version = '0.0.1-beta'
 
-RUN apt-get update && DEBIAN_FRONTED=noninteractive apt-get install -yq apt-utils
+RUN apt-get update && apt-get install -yq apt-utils
 
-RUN DEBIAN_FRONTED=noninteractive apt-get install -yq python build-essential \
-python-dev python-numpy python-mako cython python-nose \
-mayavi2 python-qt4 git python-setuptools
+RUN apt-get install -yq python build-essential python-dev python-numpy python-mako python-nose python-qt4 python-setuptools python-importlib python-unittest2 python-mock
 
-# For parallel support and OpenMP
-RUN DEBIAN_FRONTED=noninteractive apt-get install -yq libopenmpi-dev python-mpi4py python-importlib python-unittest2 libgomp1
-
-# Some additional packages
-RUN apt-get install -yq wget curl tar gcc g++
-
-RUN export CC=gcc-4.8.4
-
-RUN DEBIAN_FRONTED=noninteractive apt-get install python-mock
+RUN apt-get install -yq libopenmpi-dev python-mpi4py libgomp1 cython mayavi2 git wget curl tar gcc g++
 
 # For downloading the PySPH and setiing up setup
 RUN git clone https://bitbucket.org/pysph/pysph.git 
 
-RUN cd pysph && ./build_zoltan.sh /zoltan && export ZOLTAN=/zoltan && python setup.py develop && pysph test -v
+RUN cd pysph && ./build_zoltan.sh /zoltan && export ZOLTAN=/zoltan && python setup.py develop
