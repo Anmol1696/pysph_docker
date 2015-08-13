@@ -24,6 +24,7 @@ if __name__ == '__main__':
     if sys.argv[1] == "check":
         latest = get_repo_version(repo)
         if get_curr_version() != latest:
-            print "A newer version " + latest + " is available. Use 'docker pull anmol1696/pysph-docker' for downloading"
+            print "A newer version " + latest + " is available. \
+            Run auto-update.sh (Run 'chmod +x auto-update.sh' if there are any permission issues) for updating"
         else:
             print "Your version is up-to-date"
