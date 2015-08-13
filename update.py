@@ -1,5 +1,6 @@
 import urllib
 import sys
+import os
 
 def get_repo_version(repo):
     try:
@@ -24,3 +25,5 @@ if __name__ == '__main__':
         latest = get_repo_version(repo)
         if get_curr_version() != latest:
             print "A newer version " + latest + " is available. Use 'docker pull anmol1696/pysph-docker' for downloading"
+        else:
+            print "Your version is up-to-date"
