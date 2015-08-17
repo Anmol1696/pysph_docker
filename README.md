@@ -17,3 +17,9 @@ Download 'auto-update.sh' from the [remote repository](https://github.com/Anmol1
 **For updating the docker image:**<br>
 Run `chmod +x auto-update.sh` for making the file executable<br>
 Run `./auto-update.sh` for downloading the latest image.
+
+##Running the image
+###For Linux users
+On our host machine run <br>
+Run `chmod +x pysph_run.sh` <br>
+Run `./pysph_run.sh` <br>  
