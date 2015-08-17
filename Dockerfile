@@ -1,6 +1,6 @@
-FROM ubuntu:14.04
+FROM busybox
 MAINTAINER user@example.com
-LABEL version = '0.0.1'
+LABEL version = '0.1.1-beta'
 
 ADD update.py /
 
