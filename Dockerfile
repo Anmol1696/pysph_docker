@@ -3,7 +3,6 @@ MAINTAINER user@example.com
 LABEL version = '0.0.1'
 
 ADD update.py /home
-ADD transport.py /home
 ENV DISPLAY :0
 ENV HOME=/home
 RUN export QT_X11_NO_MITSHM=1
@@ -18,7 +17,7 @@ RUN apt-get install -yq libopenmpi-dev libgomp1 cython mayavi2 git wget tar gcc 
 # For downloading the PySPH and setting up setup
 RUN cd ~ && git clone https://bitbucket.org/pysph/pysph.git
 
-RUN cd pysph && \ 
+RUN cd pysph && \
     ./build_zoltan.sh ~/zoltan && \
     export ZOLTAN=~/zoltan && \
     python setup.py develop
