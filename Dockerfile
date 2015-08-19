@@ -21,10 +21,12 @@ RUN cd pysph && \
     ./build_zoltan.sh ~/zoltan && \
     export ZOLTAN=~/zoltan && \
     python setup.py develop
-    #cd .. && \
-    #python update.py
+    cd ../.. && \
+    python update.py set
+
+CMD python update.py check
 
 ENV MOUNT_VOL = ~/Documents/PySPH_Plots
 VOLUME $MOUNT_VOL
 
-#CMD python update.py check
+
