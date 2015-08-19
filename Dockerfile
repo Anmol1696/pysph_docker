@@ -20,7 +20,7 @@ RUN cd ~ && git clone https://bitbucket.org/pysph/pysph.git
 RUN cd ~/pysph && \
     ./build_zoltan.sh ~/zoltan && \
     export ZOLTAN=~/zoltan && \
-    python setup.py develop \
+    python setup.py develop && \
     cd ../.. && \
     python update.py
 
