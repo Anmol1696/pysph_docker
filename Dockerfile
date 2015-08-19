@@ -24,4 +24,7 @@ RUN cd pysph && \
     #cd .. && \
     #python update.py
 
+ENV MOUNT_VOL = ~/Documents/PySPH_Plots
+VOLUME $MOUNT_VOL
+
 #CMD python update.py check
