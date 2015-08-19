@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 MAINTAINER user@example.com
 LABEL version = '0.0.1'
 
-ADD update.py /home
+ADD update.py /
 ENV DISPLAY :0
 ENV HOME=/home
 RUN export QT_X11_NO_MITSHM=1
@@ -21,10 +21,12 @@ RUN cd pysph && \
     ./build_zoltan.sh ~/zoltan && \
     export ZOLTAN=~/zoltan && \
     python setup.py develop
-    #cd .. && \
-    #python update.py
+    cd ../.. && \
+    python update.py
+
+CMD python update.py check
 
 ENV MOUNT_VOL = ~/Documents/PySPH_Plots
 VOLUME $MOUNT_VOL
 
-#CMD python update.py check
+
