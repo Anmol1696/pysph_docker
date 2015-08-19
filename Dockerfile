@@ -17,10 +17,10 @@ RUN apt-get install -yq libopenmpi-dev libgomp1 cython mayavi2 git wget tar gcc 
 # For downloading the PySPH and setting up setup
 RUN cd ~ && git clone https://bitbucket.org/pysph/pysph.git
 
-RUN cd pysph && \
+RUN cd ~/pysph && \
     ./build_zoltan.sh ~/zoltan && \
     export ZOLTAN=~/zoltan && \
-    python setup.py develop
+    python setup.py develop \
     cd ../.. && \
     python update.py
 
