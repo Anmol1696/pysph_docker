@@ -22,7 +22,7 @@ RUN cd ~/pysph && \
     export ZOLTAN=~/zoltan && \
     python setup.py develop && \
     cd ../.. && \
-    python update.py
+    python update.py set
 
 CMD python update.py check
 
