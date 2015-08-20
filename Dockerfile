@@ -6,7 +6,6 @@ LABEL version = '0.0.1'
 ADD update.py /
 ENV DISPLAY :0
 ENV HOME=/home
-ENV export QT_X11_NO_MITSHM=1
 
 RUN apt-get update && apt-get install -yq apt-utils vim
 
@@ -23,9 +22,8 @@ RUN cd ~/pysph && \
     export ZOLTAN=~/zoltan && \
     python setup.py develop && \
     cd ../.. && \
-    python update.py 
-    
+    python update.py set
+
+ENV export QT_X11_NO_MITSHM=1
 VOLUME /home
 CMD python update.py check
-
-
