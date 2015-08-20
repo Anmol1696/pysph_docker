@@ -6,7 +6,9 @@ LABEL version = '0.0.1'
 ADD update.py /
 ENV DISPLAY :0
 ENV HOME=/home
-RUN export QT_X11_NO_MITSHM=1
+ENV export QT_X11_NO_MITSHM=1
+
+VOLUME /home
 
 RUN apt-get update && apt-get install -yq apt-utils vim
 
@@ -27,6 +29,4 @@ RUN cd ~/pysph && \
 
 CMD python update.py check
 
-ENV MOUNT_VOL = ~
-VOLUME $MOUNT_VOL
 
