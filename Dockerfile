@@ -24,6 +24,6 @@ RUN cd ~/pysph && \
     cd ../.. && \
     python update.py set
 
-ENV export QT_X11_NO_MITSHM=1
+ENV QT_X11_NO_MITSHM=1
 VOLUME /home
 CMD python update.py check
