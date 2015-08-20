@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM debian:wheezy
 MAINTAINER user@example.com
 LABEL version = '0.0.1'
 
