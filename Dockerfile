@@ -8,8 +8,6 @@ ENV DISPLAY :0
 ENV HOME=/home
 ENV export QT_X11_NO_MITSHM=1
 
-VOLUME /home
-
 RUN apt-get update && apt-get install -yq apt-utils vim
 
 RUN apt-get install -yq python build-essential python-dev python-numpy python-mako python-nose \
@@ -25,8 +23,9 @@ RUN cd ~/pysph && \
     export ZOLTAN=~/zoltan && \
     python setup.py develop && \
     cd ../.. && \
-    python update.py set
-
+    python update.py 
+    
+VOLUME /home
 CMD python update.py check
 
 
