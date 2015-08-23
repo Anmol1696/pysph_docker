@@ -23,3 +23,6 @@ Run `./auto-update.sh` for downloading the latest image.
 On our host machine run <br>
 Run `chmod +x pysph_run.sh` <br>
 Run `./pysph_run.sh` <br>  
+This will also require x11 for X Server.<br>
+The Mount Volume wiil be Saved in the in the `MOUNT_VOL`. If some problem occurs than it can be manualy be selected from the `docker inspect pysph-docker`. 
+In this check for Mounts, Source. This will save have the file for addr where volume will be stored. It might need root preferences.
