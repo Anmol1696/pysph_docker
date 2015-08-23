@@ -10,19 +10,21 @@ ENV QT_X11_NO_MITSHM=1
 RUN apt-get update && apt-get install -yq apt-utils vim
 
 RUN apt-get install -yq python build-essential python-dev python-numpy python-mako python-nose \
-    python-qt4 python-setuptools python-importlib python-unittest2 python-mock python-mpi4py  python-matplotlib
+    python-qt4 python-setuptools python-importlib python-unittest2 python-mock python-mpi4py \
+    python-matplotlib
 
-RUN apt-get install -yq libopenmpi-dev libgomp1 cython mayavi2 git wget tar gcc g++
+RUN apt-get install -yq libopenmpi-dev libgomp1 cython mayavi2 git wget tar gcc
 
 # For downloading the PySPH and setting up setup
-RUN cd ~ && git clone https://bitbucket.org/pysph/pysph.git
-
-RUN cd ~/pysph && \
+RUN cd ~ && git clone https://bitbucket.org/pysph/pysph.git && \
+    cd ~/pysph && \
     ./build_zoltan.sh ~/zoltan && \
     export ZOLTAN=~/zoltan && \
     python setup.py develop && \
     cd ../.. && \
-    python update.py set
+    python update.py set && \
+    apt-get autoremove && \
+    apt-get clean
 
 VOLUME /home
 WORKDIR /home
