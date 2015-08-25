@@ -26,8 +26,7 @@ Run `./pysph_run.sh` <br>
 
 ##Viewing the Mount Volume
 ###For Linux users
-The directory where the the mount volume is stored is in `MOUT_VOL` variable<br>
-For viewing the mount volume outside the container first one has to enter the super user and then move to the directory.<br>
-The commands are <br>
-`sudo -E su   `
+The path of the directory, where the mount volume is stored in host machine, is in variable `MOUNT_VOL`<br>
+For viewing the mount volume enter following commands :- <br>
+`sudo -E su   `<br>
 `cd $MOUNT_VOL`
