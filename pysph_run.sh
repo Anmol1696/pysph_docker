@@ -2,7 +2,7 @@
 xhost +
 XSOCK=/tmp/.X11-unix
 CONT=`docker ps -a --filter "name=pysph-docker" --format "{{.ID}}"`
-if [ $CONT != "" ]
+if [ ! -z $CONT ]
 then
   docker start pysph-docker /bin/bash
   docker attach pysph-docker
