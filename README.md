@@ -22,11 +22,17 @@ Run `./auto-update.sh` for downloading the latest image.
 ###For Linux users
 On our host machine run <br>
 Run `chmod +x pysph_run.sh` <br>
-Run `./pysph_run.sh` <br>  
+Run `./pysph_run.sh` <br>
+The above command forms a sub-shell in which the bash file is run.<br>
+If someone wants to run this in the same shell than<br>
+Run`. ./pysph_run.sh`<br>
+This will also enable you to access the mount volume using the below given steps<br> 
 
 ##Viewing the Mount Volume
 ###For Linux users
 The path of the directory, where the mount volume is stored in host machine, is in variable `MOUNT_VOL`<br>
 For viewing the mount volume enter following commands :- <br>
 `sudo -E su   `<br>
-`cd $MOUNT_VOL`
+`cd $MOUNT_VOL`<br>
+Remember in order to use these commands you must run `. ./pysph_run.sh`<br>
+Also the use of environmental variable must be in the same shell in which you ran the *pysph_run.sh*<br> 
