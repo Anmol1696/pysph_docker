@@ -9,6 +9,6 @@ then
 else
   docker run --name pysph-docker -i -t -e DISPLAY=$DISPLAY -v $XSOCK:$XSOCK anmol1696/pysph-docker /bin/bash
 fi
-export MOUNT_VOL=`sudo docker inspect -f '{{(index .Mounts 1).Source}}' pysph-docker`
+export MOUNT_VOL=`docker inspect -f '{{(index .Mounts 1).Source}}' pysph-docker`
 
 echo "The mounted volume can be found at $MOUNT_VOL"
