@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 MAINTAINER user@example.com
-LABEL version = '0.0.1'
+LABEL version = '0.0.2'
 
 ADD update.py /
 ENV DISPLAY :0
