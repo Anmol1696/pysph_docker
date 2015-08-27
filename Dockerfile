@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 MAINTAINER user@example.com
 LABEL version = '0.0.2'
 
-ADD update.py /root
+ADD update.py /
 ENV DISPLAY :0
 ENV HOME=/root
 ENV QT_X11_NO_MITSHM=1
