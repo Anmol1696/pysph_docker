@@ -8,7 +8,7 @@ For getting latest image install docker and run `docker pull anmol1696/pysph-doc
 2. For getting the pysph-docker image run `docker pull anmol1696/pysph-docker`
 
 ###For OSX users
-1. For installing boot2docker, go [here](http://boot2docker.io/)
+1. For installing docker, go [here](https://www.docker.com/toolbox)
 2. For getting the pysph-docker image run `docker pull anmol1696/pysph-docker`
 
 ##Updating
