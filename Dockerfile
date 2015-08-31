@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 MAINTAINER user@example.com
-LABEL version = '0.0.2'
+LABEL version = '0.0.3'
 
 ADD update.py /
 ENV HOME=/root
@@ -19,12 +19,12 @@ RUN apt-get install -yq libopenmpi-dev libgomp1 cython mayavi2 git wget tar gcc 
 # For downloading the PySPH and setting up setup
 RUN cd ~ && git clone https://bitbucket.org/pysph/pysph.git && \
     cd ~/pysph && \
-    ./build_zoltan.sh ~/zoltan && \
-    export ZOLTAN=~/zoltan && \
+    ./build_zoltan.sh $HOME/zoltan && \
+    export ZOLTAN=$HOME/zoltan && \
     python setup.py develop && \
     cd ../.. && \
     python update.py set
 
-VOLUME /root
-WORKDIR /root
+VOLUME $HOME
+WORKDIR $HOME
 CMD python update.py check
