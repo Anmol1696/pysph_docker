@@ -1,9 +1,8 @@
 FROM ubuntu:14.04
 MAINTAINER user@example.com
-LABEL version = '0.0.2'
+LABEL version = '0.0.3'
 
 ADD update.py /
-ENV HOME=/root
 ENV QT_X11_NO_MITSHM=1
 
 RUN apt-get update && apt-get install -yq apt-utils vim
@@ -25,6 +24,6 @@ RUN cd ~ && git clone https://bitbucket.org/pysph/pysph.git && \
     cd ../.. && \
     python update.py set
 
-VOLUME /root
-WORKDIR /root
+VOLUME $HOME
+WORKDIR $HOME
 CMD python update.py check
