@@ -1,0 +1,9 @@
+language: python
+
+build_image: anmol1696/pysph-docker
+
+python:
+  -2.7
+
+script:
+  - pysph run elliptical_drop
