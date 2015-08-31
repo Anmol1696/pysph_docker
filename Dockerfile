@@ -3,6 +3,7 @@ MAINTAINER user@example.com
 LABEL version = '0.0.3'
 
 ADD update.py /
+ENV HOME=/root
 ENV QT_X11_NO_MITSHM=1
 
 RUN apt-get update && apt-get install -yq apt-utils vim
