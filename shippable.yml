@@ -8,6 +8,7 @@ python:
   
 env:
   DISPLAY=:0
+  ETS_TOOLKIT=NULL
 
 script:
   - pysph test -v
