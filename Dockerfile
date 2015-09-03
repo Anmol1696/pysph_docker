@@ -12,7 +12,7 @@ RUN apt-get install -yq python python3 build-essential python-dev python-numpy p
     python-qt4 python-setuptools python-importlib python-unittest2 python-mock python-mpi4py \
     python-matplotlib
 
-RUN apt-get install -y cython3 python3-numpy python3-mako python3-mpi4py python3-nose
+RUN apt-get install -y cython3 python3-numpy python3-mako python3-mpi4py python3-nose python3-matplotlib
 
 RUN apt-get install -yq libopenmpi-dev libgomp1 cython mayavi2 git wget tar gcc && \
     apt-get autoremove && \
